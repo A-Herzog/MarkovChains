@@ -1,0 +1,70 @@
+.menuButtonTitleShort {
+  display: none;
+}
+
+@media only screen and (max-width: 550px) {
+  .menuButtonTitle {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .menuButtonTitleLong {
+    display: none;
+  }
+  .menuButtonTitleShort {
+    display: inline;
+  }
+}
+
+footer a {
+  color: blue;
+  text-decoration-color: blue;
+}
+
+[data-bs-theme="dark"] {
+  .bg-primary {
+    background-color: rgba(var(--bs-secondary-rgb),var(--bs-bg-opacity)) !important;
+  }
+
+  .bg-light {
+    background-color: rgba(var(--bs-secondary-rgb),var(--bs-bg-opacity)) !important;
+  }
+
+  footer a {
+    color: rgb(139, 185, 254)
+  }
+}
+
+#logoBox {
+  padding: 1px 5px 5px 5px;
+  border-radius: 2px;
+  background-color: white;
+}
+
+#languageButton {
+  color: white;
+}
+
+#languageButton:hover {
+  color: black;
+}
+
+#distSelect {
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+table.borders {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+table.borders td {
+  border: 1px solid black;
+  padding: 2px 5px;
+}

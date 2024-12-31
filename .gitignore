@@ -1,0 +1,7 @@
+.vscode
+.tmp
+bin
+dist
+MarkovChains.exe
+MarkovChains_Linux_MacOS.zip
+desktop-app/2_Sign.bat
