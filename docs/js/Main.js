@@ -305,6 +305,7 @@ function initGUILanguage() {
   document.getElementsByTagName("h1")[0].innerHTML=language.GUI.appName;
 
   /* Content: Input area */
+  infoAreaGeneral.innerHTML=language.GUI.markovInfo;
   modeSelectLabel.innerHTML=language.GUI.mode+":&nbsp;";
   modeSelect0.innerText=language.GUI.discrete.select;
   modeSelect1.innerText=language.GUI.continuous.select;

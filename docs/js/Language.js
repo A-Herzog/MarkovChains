@@ -42,6 +42,30 @@ lang.GUI.tabColorModeLight="Hell";
 lang.GUI.tabColorModeDark="Dunkel";
 lang.GUI.tabColorModeSystemDefault="Systemvorgabe";
 
+lang.GUI.markovInfo=`
+<p>
+<strong>Stochastische Prozesse</strong> bestehen im Allgemeinen aus Zuständen und möglichen Übergängen zwischen diesen.
+Soll ein Bediensystem als stochastischer Prozess modelliert werden, so stellt üblicherweise die aktuelle Anzahl an Kunden im System den Zustand des Systems dar;
+durch eine Ankunft eines Kunden oder weil ein fertig bedienter Kunde das System verlässt, entstehen mögliche Übergänge zwischen den Zuständen.
+Grafisch werden die Zustünde eines stochastischen Prozesses meist als kleine Kreise dargestellt. Die möglichen Übergänge werden dann durch Verbindungspfeile zwischen den Kreisen symbolisiert.
+</p>
+<p>
+Eine <strong>Markov-Kette</strong> stellt eine besondere Form eines stochastischen Prozesses dar. Die Besonderheit bzw. Einschränkung gegenüber einem allgemeinen stochastischen Prozess
+besteht darin, dass die Übergangswahrscheinlichkeiten von einem Zustand zu einem anderen nur von dem jeweiligen Zustand selbst abhängen (und nicht von der Vorgeschichte).
+Bezogen auf ein Bediensystem bedeutet dies, dass die Übergangsraten zu dem Zustand "ein Kunde mehr" und zu dem Zustand "ein Kunde weniger" nur von dem aktuellen Zustand
+abhängt - und nicht davon, in welchen Zuständen sich das System zu früheren Zeitpunkten befunden hat.
+Jeder Zustand des Systems hängt in zeitlicher Hinsicht daher wie bei einer Kette nur an seinem unmittelbaren Vorgängerzustand.
+(Der Name Markov-Kette hat folglich nichts mit der grafischen, d.h. räumlichen, Darstellung des Prozesses zu tun.)
+Diese Bedingung an einen Markov-Prozess wird auch die <strong>Markov-Eigenschaft</strong> genannt.
+</p>
+<p>
+Bei Markov-Prozessen wird unterschieden, zu welchen Zeitpunkten jeweils ein Übergang von einem Zustand zum nächsten erfolgen kann. Erfolgen diese Übergänge getaktet,
+so spricht man von einer <strong>zeitdiskreten</strong> Markov-Kette. Die in jedem Zeitschritt erfolgenden Übergänge werden dann über eine Übergangswahrscheinlichkeitenmatrix
+definiert. Können die Übergänge zu jedem beliebigen Zeitpunkt auftreten, so handelt es sich um eine <strong>zeitstetige</strong> Markov-Kette. In diesem Fall Können
+keine einfachen Wahrscheinlichkeiten zur Beschreibung des Verhaltens verwendet werden, sondern es werden über eine sogenannte q-Matrix die Übergangsraten angegeben.
+</p>
+`;
+
 lang.GUI.mode="Modus";
 lang.GUI.permalink="Permalink zu diesen Einstellungen";
 lang.GUI.numberOfStates="Anzahl an Zuständen";
@@ -124,6 +148,30 @@ lang.GUI.tabColorMode="Color mode";
 lang.GUI.tabColorModeLight="Light";
 lang.GUI.tabColorModeDark="Dark";
 lang.GUI.tabColorModeSystemDefault="System default";
+
+lang.GUI.markovInfo=`
+<p>
+In general, <strong>stochastic processes</strong> consist of states and possible transitions between them.
+If a queueing system is to be modeled as a stochastic process, the current number of customers in the system usually represents the state of the system;
+possible transitions between the states arise when a customer arrives or because a customer who has finished being served leaves the system.
+Graphically, the states of a stochastic process are usually represented as small circles.
+The possible transitions are then symbolized by connecting arrows between the circles.
+</p>
+<p>
+A <strong>Markov chain</strong> is a special form of a stochastic process.
+The special feature or restriction compared to a general stochastic process is that the transition probabilities from one state to another only depend on the respective state itself (and not on the previous history).
+In relation to an queueing system, this means that the transition rates to the state "one more customer" and to the state "one less customer" only depend on the current state - and not on the states the system was in at earlier points in time.
+Each state of the system therefore only depends on its immediate predecessor state in terms of time, as in a chain. (The name Markov chain therefore has nothing to do with the graphical, i.e. spatial, representation of the process.)
+This condition on a Markov process is also called the <strong>Markov property</strong>.
+</p>
+<p>
+In Markov processes, a distinction is made between the points in time at which a transition from one state to the next can occur.
+If these transitions are clocked, this is referred to as a <strong>discrete-time</strong> Markov chain.
+The transitions occurring at each time step are then defined using a transition probability matrix.
+If the transitions can occur at any point in time, this is a <strong>continuous-time</strong> Markov chain.
+In this case, no simple probabilities can be used to describe the behavior, but the transition rates are specified via a so-called q-matrix.
+</p>
+`;
 
 lang.GUI.mode="Mode";
 lang.GUI.permalink="Permalink to these settings";
