@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-export {isDesktopApp, initApp, changeSettings, changeMatrixValue, updateSize};
+export {isDesktopApp, initApp, changeSettings, changeMatrixValue, updateSize, startApp};
 
 import {language} from "./Language.js";
 import {formatNumber, getFloat} from "./NumberTools.js";
@@ -370,6 +370,10 @@ function initGUILanguage() {
   chartFrequenciesDiscrete=new Chart(boxFrequenciesDiscrete,{type: 'bar', data: chartFrequenciesDiscreteData, options: optionsBar});
   chartStateContinuous=new Chart(boxCurrentStateContinuous,{type: 'line', data: chartStateContinuousData, options: optionsLineContinuous});
   chartFrequenciesContinuous=new Chart(boxFrequenciesContinuous,{type: 'bar', data: chartFrequenciesContinuousData, options: optionsBar});
+
+  /* Tools */
+  toolsInfo.innerHTML=language.GUI.tools.info;
+  toolsPython.innerHTML=" "+language.GUI.tools.python;
 
   /* Footer */
   appName2.innerHTML=language.GUI.appName;

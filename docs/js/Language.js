@@ -124,6 +124,10 @@ lang.GUI.simulation.graph="Markov-Graph";
 lang.GUI.simulation.plotState="Zustand";
 lang.GUI.simulation.plotRelativeFrequency="Relative Häufigkeit";
 
+lang.GUI.tools={};
+lang.GUI.tools.info="Weitere Hilfsmittel:";
+lang.GUI.tools.python="Python Notebook";
+
 
 /* English */
 
@@ -230,6 +234,11 @@ lang.GUI.simulation.frequencies="Relative frequencies";
 lang.GUI.simulation.graph="Markov graph";
 lang.GUI.simulation.plotState="State";
 lang.GUI.simulation.plotRelativeFrequency="Relative frequency";
+
+lang.GUI.tools={};
+lang.GUI.tools.info="More tools:";
+lang.GUI.tools.python="Python notebook";
+
 
 /* Activate language */
 
