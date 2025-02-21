@@ -373,6 +373,7 @@ function initGUILanguage() {
 
   /* Tools */
   toolsInfo.innerHTML=language.GUI.tools.info;
+  simButton.innerHTML=" "+language.GUI.mg1simulation.title;
   toolsPython.innerHTML=" "+language.GUI.tools.python;
 
   /* Footer */

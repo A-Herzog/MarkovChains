@@ -124,6 +124,32 @@ lang.GUI.simulation.graph="Markov-Graph";
 lang.GUI.simulation.plotState="Zustand";
 lang.GUI.simulation.plotRelativeFrequency="Relative Häufigkeit";
 
+lang.GUI.mg1simulation={};
+lang.GUI.mg1simulation.title="Simulation einer M/G/1-Warteschlange";
+lang.GUI.mg1simulation.closeWindow="Fenster schließen";
+lang.GUI.mg1simulation.closeWindowShort="Schließen";
+lang.GUI.mg1simulation.info=`
+<p>Die Zwischenankunftszeiten der Kunden sind exponentialverteilt, für die Bedienzeiten kann zwischen einer Gamma-Verteilung, einer Exponentialverteilung und einer Log-Normalverteilung gewählt werden. Im Falle einer Exponentialverteilung ergibt sich eine M/M/1-Warteschlange.</p>
+<p>Unten können die Parameter des Ankunfts- und Bedienzeitverteilung eingestellt werden. Der Quotient aus Bedien- und Ankunftsrate ergibt die Verkehrsrate.</p>
+<p>Im Koordinatensystem wird die Anzahl der Kunden im System zur Zeit t angegeben. Bei jedem Sprung nach oben kommt ein Kunde an, jeder Sprung nach unten bedeutet das Ende einer Bedienzeit. Die Bediendauern werden darüber hinaus unten markiert.</p>`;
+lang.GUI.mg1simulation.arrivalRate="Ankunftsrate";
+lang.GUI.mg1simulation.arrivalRateError="Die Ankunftsrate &lambda; ist ungültig.";
+lang.GUI.mg1simulation.arrivalRateAverage="Mittlere Zwischenankunftszeit";
+lang.GUI.mg1simulation.serviceRate="Bedienrate";
+lang.GUI.mg1simulation.serviceRateError="Die Bedienrate &mu; ist ungültig.";
+lang.GUI.mg1simulation.serviceRateAverage="Mittlere Bediendauer";
+lang.GUI.mg1simulation.cvService="Variationskoeffizient der Bediendauern";
+lang.GUI.mg1simulation.cvServiceError="Der Variationskoeffizient der Bediendauern CV[S] ist ungültig.";
+lang.GUI.mg1simulation.serviceDistribution="Verteilung der Bediendauern";
+lang.GUI.mg1simulation.serviceDistributionExp="Exponentialverteilung";
+lang.GUI.mg1simulation.serviceDistributionGamma="Gamma-Verteilung";
+lang.GUI.mg1simulation.serviceDistributionLogNormal="Log-Normalerteilung";
+lang.GUI.mg1simulation.utilization="Auslastung";
+lang.GUI.mg1simulation.diagramClients="Anzahl an Kunden im System";
+lang.GUI.mg1simulation.diagramServiceTimes="Bediendauern";
+lang.GUI.mg1simulation.time="Zeit";
+lang.GUI.mg1simulation.averageResidenceTime="Durchschnittliche Verweilzeit";
+
 lang.GUI.tools={};
 lang.GUI.tools.info="Weitere Hilfsmittel:";
 lang.GUI.tools.python="Python Notebook";
@@ -234,6 +260,32 @@ lang.GUI.simulation.frequencies="Relative frequencies";
 lang.GUI.simulation.graph="Markov graph";
 lang.GUI.simulation.plotState="State";
 lang.GUI.simulation.plotRelativeFrequency="Relative frequency";
+
+lang.GUI.mg1simulation={};
+lang.GUI.mg1simulation.title="Simulation einer M/G/1-Warteschlange";
+lang.GUI.mg1simulation.closeWindow="Close window";
+lang.GUI.mg1simulation.closeWindowShort="Close";
+lang.GUI.mg1simulation.info=`
+<p>The inter-arrival times of the customers are exponentially distributed, the distribution for the service times can be selected to be gamma distribution, exponential distribution and log-normal distribution. In the case of the exponential distribution this results in an M/M/ 1 queue.</p>
+<p>At the bottom of the page the parameters of the inter-arrival and service time distributions can be adjusted. The ratio of service and the arrival rate defines the traffic rate.</p>
+<p>In the diagram the number of clients in the system at time t is specified. Each jump upwards defines a customer arrival, each jump to the bottom means the end of a service time. The service time are also denoted below.</p>`;
+lang.GUI.mg1simulation.arrivalRate="Arrival rate";
+lang.GUI.mg1simulation.arrivalRateError="The arrival rate &lambda; is invalid.";
+lang.GUI.mg1simulation.arrivalRateAverage="Average inter-arrival time";
+lang.GUI.mg1simulation.serviceRate="Service rate";
+lang.GUI.mg1simulation.serviceRateError="The service rate &mu; is invalid.";
+lang.GUI.mg1simulation.serviceRateAverage="Average service time";
+lang.GUI.mg1simulation.cvService="Coefficient of variation of the service times";
+lang.GUI.mg1simulation.cvServiceError="The coefficient of variation of the service times CV[S] is invalid.";
+lang.GUI.mg1simulation.serviceDistribution="Distribution of the service times";
+lang.GUI.mg1simulation.serviceDistributionExp="Exponential distribution";
+lang.GUI.mg1simulation.serviceDistributionGamma="Gamma distribution";
+lang.GUI.mg1simulation.serviceDistributionLogNormal="Log-Normal distribution";
+lang.GUI.mg1simulation.utilization="Utilization";
+lang.GUI.mg1simulation.diagramClients="Number of customers in the system";
+lang.GUI.mg1simulation.diagramServiceTimes="Service times";
+lang.GUI.mg1simulation.time="Time";
+lang.GUI.mg1simulation.averageResidenceTime="Average residence time";
 
 lang.GUI.tools={};
 lang.GUI.tools.info="More tools:";

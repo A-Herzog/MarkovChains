@@ -53,6 +53,12 @@ function start() {
   const resizeObserver2=new ResizeObserver(()=>updateSize("Continuous"));
   resizeObserver2.observe(boxGraphContinuous.parentElement);
 
+  /* More tools & download buttons */
+  simButton.onclick=()=>{
+    const file="mg1sim"+((document.documentElement.lang=='de')?"_de":"")+".html";
+    window.open(file,"_blank");
+  };
+
   /* Process permalink parameters */
   const validKeys=["mode","size","matrix","start"];
   const data=loadSearchStringParameters(validKeys);
