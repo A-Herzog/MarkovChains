@@ -201,10 +201,13 @@ function addInputMatrix(parent, id) {
   table.id="inputTable"+id;
   table.className="borders mt-3";
 
-  /* Info line below matrix */
-  const info=document.createElement("div");
-  div.appendChild(info);
+  /* Info lines below matrix */
+  let info;
+  div.appendChild(info=document.createElement("div"));
   info.id="inputInfo"+id;
+  info.className="mt-3";
+  div.appendChild(info=document.createElement("div"));
+  info.id="inputInfo2"+id;
   info.className="mt-3";
 
   /* Start */
@@ -398,11 +401,11 @@ function updatePermaLink() {
   let start;
   if (mode==0) {
     size=parseInt(numberOfStatesDiscrete.value);
-    values=getTableValues("Discrete",size);
+    values=getTableValues("Discrete",size,null);
     start=parseInt(simulationStartSelectDiscrete.value);
   } else {
     size=parseInt(numberOfStatesContinuous.value);
-    values=getTableValues("Continuous",size);
+    values=getTableValues("Continuous",size,null);
     start=parseInt(simulationStartSelectContinuous.value);
   }
   const matrix=(values==null)?"":values.map(row=>row.map(cell=>formatNumber(cell)).join(";")).join(";;");
@@ -443,17 +446,26 @@ function changeSettings() {
  * Loads data from a table.
  * @param {String} id Id of the table
  * @param {Number} size Size of the table (data rows/cols without headers)
+ * @param {Object}  errorInfo HTML node to show error messages in (can be null for no ouput)
  * @returns Double Array containing the table data
  */
-function getTableValues(id, size) {
+function getTableValues(id, size, errorInfo) {
   const values=[];
   for (let i=0;i<size;i++) {
     const row=[];
     for (let j=0;j<size;j++) {
-      const value=getFloat(document.getElementById(id+"-"+(i+1)+"-"+(j+1)).innerText);
+      const element=document.getElementById(id+"-"+(i+1)+"-"+(j+1));
+      let text=element.innerText;
+      if (text!=text.trim()) {
+        text=text.trim();
+        element.innerText=text;
+      }
+      const value=getFloat(text);
       if (value==null) {
-        errorInfo.innerHTML=language.GUI.valueError.numberErrorA+(i+1)+language.GUI.valueError.numberErrorB+(j+1)+language.GUI.valueError.numberErrorC;
-        errorInfo.style.color="red";
+        if (errorInfo!=null) {
+          errorInfo.innerHTML=language.GUI.valueError.numberErrorA+(i+1)+language.GUI.valueError.numberErrorB+(j+1)+language.GUI.valueError.numberErrorC;
+          errorInfo.style.color="red";
+        }
         return null;
       }
       row.push(value);
@@ -464,14 +476,80 @@ function getTableValues(id, size) {
 }
 
 /**
+ * Added the starting state to the set and also adds all possible following states.
+ * @param {Array} values Matrix
+ * @param {Number} state Starting state
+ * @param {Set} followStates Set of the follow states
+ */
+function calcFollowStates(values, state, followStates) {
+  followStates.add(state);
+  for (let i=0;i<values[state].length;i++) {
+    if (values[state][i]==0) continue;
+    if (!followStates.has(i)) calcFollowStates(values,i,followStates);
+  }
+}
+
+/**
+ * Returns a set continaing all states the can follow on the given starting state.
+ * @param {Array} values Matrix
+ * @param {Number} state Starting state
+ * @returns Set of all possible following states
+ */
+function getFollowStates(values, state) {
+  const followStates=new Set();
+  calcFollowStates(values,state,followStates);
+  return followStates;
+}
+
+/**
+ * Checks the matrix for irreducibility.
+ * @param {Array} values Matrix
+ * @returns Irreducibility text
+ */
+function checkIrreducibility(values) {
+  /* Calcualte possible next states */
+  const followStates=[];
+  for (let i=0;i<values.length;i++) followStates.push(getFollowStates(values,i));
+
+  const notGrouped=new Set(Array.from({length: values.length},(_,i)=>i));
+  const groups=[];
+  while (notGrouped.size>0) {
+    /* Select next group starting state */
+    const state=Array.from(notGrouped).reduce((a,b)=>Math.min(a,b));
+    notGrouped.delete(state);
+    const group=[state];
+    groups.push(group);
+    /* Check for all not grouped states reachability */
+    let done=false;
+    while (!done) {
+      done=true;
+      for (let i of notGrouped) if (followStates[state].has(i) && followStates[i].has(state)) {
+        notGrouped.delete(i);
+        group.push(i);
+        done=false;
+        break;
+      }
+    }
+  }
+
+  if (groups.length==1) {
+    return language.GUI.connections.irreducible;
+  } else {
+    return language.GUI.connections.reducible+" ["+groups.map(g=>g.map(i=>i+1).join(";")).join("], [")+"].";
+  }
+}
+
+/**
  * Callback when values in the table are changed.
  * @param {String} id Id of the table
  */
 function changeMatrixValue(id) {
   /* Delete old output */
   const errorInfo=document.getElementById("inputInfo"+id);
+  const irreducibilityInfo=document.getElementById("inputInfo2"+id);
   errorInfo.innerHTML="";
   errorInfo.style.color="";
+  irreducibilityInfo.innerHTML="";
   inputAdditionalTableContinuous.innerHTML="";
   if (id=="Discrete") {
     matrixDiscrete=null;
@@ -490,7 +568,8 @@ function changeMatrixValue(id) {
 
   /* Load values */
   const size=parseInt(document.getElementById("numberOfStates"+id).value);
-  const values=getTableValues(id,size);
+  const values=getTableValues(id,size,errorInfo);
+  if (values==null) return;
 
   /* Check values */
   for (let i=0;i<size;i++) {
@@ -534,6 +613,9 @@ function changeMatrixValue(id) {
   } else {
     errorInfo.innerHTML=language.GUI.valueError.continuousOk;
   }
+
+  /* Check irreducibility */
+  irreducibilityInfo.innerHTML=checkIrreducibility(values);
 
   /* Build jump chain matrix (in continuous mode) */
   if (id=="Continuous") {

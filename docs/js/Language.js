@@ -89,6 +89,10 @@ lang.GUI.valueError.continuousOffMainDiagonal="Die Werte außerhalb der Hauptdia
 lang.GUI.valueError.discreteOk="Die Übergangswahrscheinlichkeiten sind gültig.";
 lang.GUI.valueError.continuousOk="Die Übergangsraten sind gültig.";
 
+lang.GUI.connections={};
+lang.GUI.connections.reducible="Die Matrix ist <strong>reduziebel</strong>, d.h. nicht alle Zustände sind gegenseitig erreichbar. Es ergeben sich folgende Teilmatrizen aus folgenden Zuständen:";
+lang.GUI.connections.irreducible="Die Matrix ist <strong>irreduziebel</strong>. Alle Zustände sind gegenseitig erreichbar.";
+
 lang.GUI.discrete={};
 lang.GUI.discrete.select="Zeitdiskret";
 lang.GUI.discrete.info=`
@@ -225,6 +229,10 @@ lang.GUI.valueError.continuousMainDiagonal="The value on the main diagonal has t
 lang.GUI.valueError.continuousOffMainDiagonal="The values outside the main diagonals have to be greater than or equal to 0.";
 lang.GUI.valueError.discreteOk="The transition probabilities are valid.";
 lang.GUI.valueError.continuousOk="The transition rates are valid.";
+
+lang.GUI.connections={};
+lang.GUI.connections.reducible="The matrix is <strong>reducible</strong>, i.e. not all states are mutually reachable. The following sub-matrices result from the following states:";
+lang.GUI.connections.irreducible="The matrix is <strong>irreducible</strong>. All states are mutually reachable.";
 
 lang.GUI.discrete={};
 lang.GUI.discrete.select="Discrete time";
