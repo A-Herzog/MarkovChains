@@ -12,7 +12,8 @@ To use Markov chain simulation just go to
 
 You can also download the Markov chain simulator as an offline usable Windows application:
 
-**[MarkovChains.exe](https://github.com/A-Herzog/MarkovChains/releases/latest/download/MarkovChains.exe)**
+* **[MarkovChains.exe](https://github.com/A-Herzog/MarkovChains/releases/latest/download/MarkovChains.exe)**
+* **[MarkovChains_Linux_MacOS.zip](https://github.com/A-Herzog/MarkovChains/releases/latest/download/MarkovChains_Linux_MacOS.zip)**
 
 ## License
 

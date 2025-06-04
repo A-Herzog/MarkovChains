@@ -378,6 +378,13 @@ function initGUILanguage() {
   toolsInfo.innerHTML=language.GUI.tools.info;
   simButton.innerHTML=" "+language.GUI.mg1simulation.title;
   toolsPython.innerHTML=" "+language.GUI.tools.python;
+  if (isDesktopApp) {
+    download.style.display="none";
+  } else {
+    download.innerHTML=" "+language.GUI.tools.downloadButton;
+  }
+  downloadExe.innerHTML=" "+language.GUI.tools.downloadButtonExe;
+  downloadZip.innerHTML=" "+language.GUI.tools.downloadButtonZip;
 
   /* Footer */
   appName2.innerHTML=language.GUI.appName;

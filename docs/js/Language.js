@@ -157,6 +157,9 @@ lang.GUI.mg1simulation.averageResidenceTime="Durchschnittliche Verweilzeit";
 lang.GUI.tools={};
 lang.GUI.tools.info="Weitere Hilfsmittel:";
 lang.GUI.tools.python="Python Notebook";
+lang.GUI.tools.downloadButton="Webapp-Download";
+lang.GUI.tools.downloadButtonExe="Windows-Anwendung (exe)";
+lang.GUI.tools.downloadButtonZip="Linux und MacOS-Anwendung (zip)";
 
 
 /* English */
@@ -298,6 +301,9 @@ lang.GUI.mg1simulation.averageResidenceTime="Average residence time";
 lang.GUI.tools={};
 lang.GUI.tools.info="More tools:";
 lang.GUI.tools.python="Python notebook";
+lang.GUI.tools.downloadButton="Download webapp";
+lang.GUI.tools.downloadButtonExe="Windows application (exe)";
+lang.GUI.tools.downloadButtonZip="Linux and macOS application (zip)";
 
 
 /* Activate language */
