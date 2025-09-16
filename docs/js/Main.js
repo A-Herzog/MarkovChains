@@ -188,7 +188,7 @@ function addInputMatrix(parent, id) {
   for (let i=0;i<4;i++) {
     const li=document.createElement("li");
     ul.appendChild(li);
-    const a=document.createElement("a");
+    const a=document.createElement("button");
     li.appendChild(a);
     a.className="dropdown-item";
     a.innerHTML=[language.GUI.fillMatrix.random,language.GUI.fillMatrix.unit,language.GUI.fillMatrix.zeros,language.GUI.fillMatrix.example][i];
