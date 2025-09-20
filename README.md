@@ -1,6 +1,8 @@
 # Markov chain simulation
 
-Markov chain simulation is a web service for simulating markov chains.
+Markov chain simulation is a web service for simulating Markov chains.
+
+[![Screenshot](Screenshot.png)](https://a-herzog.github.io/MarkovChains)
 
 ## Usage
 
